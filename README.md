@@ -68,5 +68,3 @@ The full setup process would involve:
 6.  Committing any changes to trigger the GitOps workflow.
 
 ---
-
-This project serves as a powerful demonstration of how to build and manage a cloud-native platform using modern DevOps principles.
