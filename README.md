@@ -4,7 +4,7 @@ This repository contains all the configuration and source code for a comprehensi
 
 ## Project Overview & Architecture
 
-The goal of this project is to showcase a modern, scalable, and resilient way to manage cloud infrastructure and deploy applications. It uses a suite of industry-standard DevOps tools to automate the entire lifecycle.
+this project showcase a modern, scalable, and resilient way to manage cloud infrastructure and deploy applications. It uses a suite of industry-standard DevOps tools to automate the entire lifecycle.
 
 <br>
 
