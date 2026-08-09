@@ -33,7 +33,6 @@ This project implements a Kubernetes GitOps platform for deploying and managing 
   - **`outputs.tf`** – Provides important deployment outputs, including the command for configuring `kubectl`.
 
 - **GitOps Manifests (`/gitops-manifests`)**
-  - Acts as the single source of truth for the Kubernetes cluster and is monitored by Argo CD.
   - **`root-app.yaml`** – The main Argo CD application that bootstraps the other applications.
   - **`apps/templates/`** – Contains Argo CD `Application` definitions for the `sample-app` and monitoring stack.
   - **`charts/sample-app`** – Contains the Helm chart for deploying the sample Node.js application.
