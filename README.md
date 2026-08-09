@@ -1,4 +1,4 @@
-# Production-Grade Kubernetes Platform on AWS
+# Kubernetes Platform on AWS
 
 This project implements a Kubernetes GitOps platform for deploying and managing containerized applications using DevOps practices. It combines Terraform, Amazon EKS, Docker, Kubernetes, Helm, and Argo CD to automate infrastructure provisioning and application delivery, The entire platform is designed to be managed through Infrastructure as Code (IaC) and a GitOps workflow.
 
