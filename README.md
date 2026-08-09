@@ -2,17 +2,13 @@
 
 This repository contains all the configuration and source code for a comprehensive, production-grade Kubernetes platform built on AWS. The entire platform is designed to be managed through Infrastructure as Code (IaC) and a GitOps workflow.
 
-## Project Overview & Architecture
+## Architecture
 
-this project showcase a modern, scalable, and resilient way to manage cloud infrastructure and deploy applications. It uses a suite of industry-standard DevOps tools to automate the entire lifecycle.
+![aws-kubernetes-gitops-platform Architecture](Architecture2.png)
 
-<br>
+---
 
-
-
-<br>
-
-The architecture consists of:
+## Technologies used:
 - **Cloud Provider**: AWS
 - **Container Orchestration**: Amazon EKS (Elastic Kubernetes Service)
 - **Infrastructure as Code (IaC)**: Terraform for provisioning the VPC and EKS cluster.
@@ -22,24 +18,26 @@ The architecture consists of:
 
 ---
 
-## Core Components
 
-### 1. Application Code (`/app-source-code`)
-A simple Node.js microservice that serves as the example application to be deployed.
-- **`app.js`**: A basic "Hello, World" web server that returns a JSON response.
-- **`Dockerfile`**: A multi-stage Dockerfile to create a lightweight, production-ready container image of the application.
+## Project Structure
 
-### 2. Infrastructure as Code (`/terraform`)
-This directory contains the Terraform code to provision the entire AWS infrastructure.
-- **`main.tf`**: Defines the AWS VPC (Virtual Private Cloud), subnets, and the Amazon EKS cluster itself using the official AWS Terraform modules.
-- **`variables.tf`**: Centralizes customizable values like the AWS region and cluster name.
-- **`outputs.tf`**: Exposes important information after deployment, such as the command to configure `kubectl`.
+- **Application Code (`/app-source-code`)**
+  - A simple Node.js microservice used as the sample application for deployment.
+  - **`app.js`** – A basic "Hello, World" web server that returns a JSON response.
+  - **`Dockerfile`** – A multi-stage Dockerfile for building a lightweight, production-ready container image.
 
-### 3. GitOps Manifests (`/gitops-manifests`)
-This is the heart of the GitOps workflow and acts as the "single source of truth" for the Kubernetes cluster. Argo CD is configured to monitor this directory.
-- **`root-app.yaml`**: The main Argo CD application that bootstraps the entire system by deploying all other applications.
-- **`apps/templates/`**: Contains the Argo CD `Application` definitions for our `sample-app` and the `monitoring` stack.
-- **`charts/sample-app`**: A Helm chart for deploying our sample Node.js application. The `deployment.yaml` and `service.yaml` define how the application runs in the cluster.
+- **Infrastructure as Code (`/terraform`)**
+  - Contains the Terraform code used to provision the AWS infrastructure.
+  - **`main.tf`** – Defines the AWS VPC, subnets, and Amazon EKS cluster using official AWS Terraform modules.
+  - **`variables.tf`** – Defines configurable values such as the AWS region and cluster name.
+  - **`outputs.tf`** – Provides important deployment outputs, including the command for configuring `kubectl`.
+
+- **GitOps Manifests (`/gitops-manifests`)**
+  - Acts as the single source of truth for the Kubernetes cluster and is monitored by Argo CD.
+  - **`root-app.yaml`** – The main Argo CD application that bootstraps the other applications.
+  - **`apps/templates/`** – Contains Argo CD `Application` definitions for the `sample-app` and monitoring stack.
+  - **`charts/sample-app`** – Contains the Helm chart for deploying the sample Node.js application.
+  - **`deployment.yaml`** and **`service.yaml`** – Define how the application runs and is exposed within the Kubernetes cluster.
 
 ---
 
