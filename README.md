@@ -1,6 +1,6 @@
 # Production-Grade Kubernetes Platform on AWS
 
-This repository contains all the configuration and source code for a comprehensive, production-grade Kubernetes platform built on AWS. The entire platform is designed to be managed through Infrastructure as Code (IaC) and a GitOps workflow.
+This project implements a Kubernetes GitOps platform for deploying and managing containerized applications using DevOps practices. It combines Terraform, Amazon EKS, Docker, Kubernetes, Helm, and Argo CD to automate infrastructure provisioning and application delivery, The entire platform is designed to be managed through Infrastructure as Code (IaC) and a GitOps workflow.
 
 ## Architecture
 
@@ -49,20 +49,4 @@ This repository contains all the configuration and source code for a comprehensi
     - When a developer commits and pushes a change to the `/gitops-manifests/charts/sample-app` directory (e.g., updating the image version in `deployment.yaml`), Argo CD detects the change in Git.
     - Argo CD automatically compares the new state in Git with the running state in the cluster and applies the changes, deploying the new version of the application. **There is no manual `kubectl apply` needed for applications.**
 4.  **Observability Deployment**: In the same way, the Prometheus and Grafana stack is deployed and configured just by having its Argo CD application manifest present in the Git repository.
-
-## To Run This Project
-To replicate this setup in a real environment, you would need:
-- An AWS Account
-- A GitHub Account
-- A Docker Hub Account
-- Locally installed tools: `Terraform`, `kubectl`, `aws-cli`
-
-The full setup process would involve:
-1.  Cloning this repository locally.
-2.  Configuring AWS credentials.
-3.  Running `terraform apply` to build the infrastructure.
-4.  Installing Argo CD and applying the `root-app.yaml` manifest to point to your repository.
-5.  Building and pushing the Docker image from `/app-source-code`.
-6.  Committing any changes to trigger the GitOps workflow.
-
 ---
